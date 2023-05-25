@@ -15,10 +15,8 @@ public class ModuleIsolationAssemblyResolver : IModuleAssemblyInitializer, IModu
     private static readonly string assemblyRootPath = Path.GetDirectoryName(currentAssembly.Location)!;
     // The directory of the module manifest in the same directory as the assembly
     private static readonly string manifestPath = GetModuleManifestPath(assemblyRootPath);
-    // The dependencies directory in the module root path
-    private static readonly string dependenciesPath = assemblyRootPath; // Path.Combine(assemblyRootPath, "dependencies");
     // Create the AssemblyLoadContext with the name of the module from the manifest, and the full path to the dependency directory
-    private static readonly ModuleIsolationAssemblyLoadContext context = new($"{Path.GetFileNameWithoutExtension(manifestPath)}Context", dependenciesPath);
+    private static readonly ModuleIsolationAssemblyLoadContext context = new($"{Path.GetFileNameWithoutExtension(manifestPath)}Context", assemblyRootPath);
     // Find a list of all modules to isolate from the manifest, excluding the current assembly that must come first in NestedModules
     private static readonly List<string> modulesToIsolate = FindModulesToIsolate(manifestPath, $"{currentAssembly.GetName().Name}.dll");
 
