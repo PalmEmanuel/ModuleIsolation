@@ -13,7 +13,7 @@ Deploy and reference **ModuleIsolation** together with your PowerShell module, a
 
 ### CSharp
 
-Add the package as a reference to your module project.
+Add the package as a reference to your module project using the .NET CLI.
 
 ```plaintext
 dotnet add package PipeHow.ModuleIsolation
