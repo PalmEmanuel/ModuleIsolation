@@ -19,7 +19,7 @@ Add the package as a reference to your module project using the .NET CLI.
 dotnet add package PipeHow.ModuleIsolation
 ```
 
-Or add it as a package reference to the `.csproj` file.
+Or add it as a package reference directly to the `.csproj` file.
 
 ```plaintext
 <PackageReference Include="PipeHow.ModuleIsolation" Version="1.0.0" />
